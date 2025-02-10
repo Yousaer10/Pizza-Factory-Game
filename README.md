@@ -158,10 +158,10 @@ git clone https://github.com/Yousaer10/Pizza-Factory-Game.git
 Open Processing IDE and run Main.pde.
 
 🖼 Screenshots
-![Menu Screen](image-1.png)
-![Start of game](image-2.png)
-![Adding toppings to pizza](image-3.png)
-![Putting pizza inside of the box](image-4.png)
-![Game over screen](image-5.png)
-![Score board](image-6.png)
+![Menu Screen](Demo/image-1.png)
+![Start of game](Demo/image-2.png)
+![Adding toppings to pizza](Demo/image-3.png)
+![Putting pizza inside of the box](Demo/image-4.png)
+![Game over screen](Demo/image-5.png)
+![Score board](Demo/image-6.png)
 
