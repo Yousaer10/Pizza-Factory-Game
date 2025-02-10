@@ -46,27 +46,29 @@ Rotation.pde – Handles rotation mechanics for draggable objects.
 
 The game uses a finite state machine with the following states:
 
-START_SCREEN
+START_SCREEN = 0
 
-GAMEPLAY
+GAMEPLAY = 1
 
-SCOREBOARD
+SCOREBOARD = 2
 
-GAME_OVER
+GAME_OVER = 3
 
 State changes are triggered by user input (mouse clicks on buttons).
 
+```
 void draw() {
-    if (gameState == START_SCREEN) {
-        drawStartScreen();
-    } else if (gameState == GAMEPLAY) {
-        updateGame();
-    } else if (gameState == SCOREBOARD) {
-        drawScoreboard();
-    } else if (gameState == GAME_OVER) {
-        drawGameOverScreen();
+    if (menu.currentState == 0) {
+        //drawStartScreen();
+    } else if (menu.currentState == 1) {
+        //updateGame();
+    } else if (menu.currentState == 2) {
+        //drawScoreboard();
+    } else if (menu.currentState == 3) {
+        //drawGameOverScreen();
     }
 }
+```
 
 3️⃣ Collision Detection & Drag Mechanics
 
@@ -76,6 +78,7 @@ Pizza Box Collision: Ensures the box is upright before placing the pizza.
 
 Mouse Drag & Drop: Handles player interaction.
 
+```
 void checkCollisionWithPizzaBase() {
   float boxLeft = x - pizzaBoxImage.width / 2;
   float boxRight = x + pizzaBoxImage.width / 2;
@@ -97,11 +100,13 @@ void checkCollisionWithPizzaBase() {
 
   }
 }
+```
 
 4️⃣ Sorting Algorithm for Scoreboard
 
 The leaderboard stores scores in a text file and sorts them using Insertion Sort.
 
+```
 int[] insertNumberToArray(int[] intArray, int number) {
   int[] newIntArray = new int[intArray.length + 1];
   int i = 0;
@@ -114,11 +119,13 @@ int[] insertNumberToArray(int[] intArray, int number) {
     newIntArray[j + 1] = intArray[j];
   return newIntArray;
 }
+```
 
 5️⃣ File Handling for Score Saving
 
 The game writes and reads scores from a text file, ensuring scores persist.
 
+```
 void saveHighScore(int score) {
   this.highScore = score;
 
@@ -131,9 +138,11 @@ void saveHighScore(int score) {
 
   saveStrings("Assets/Scoreboard/scoreboard.txt", lines);
 }
+```
 
 🗂 Project Structure
 
+```
 Pizza-Factory-Game/
 │── Assets/                 # Images, sounds, and textures
 │── Conveyor_Belt.pde       # Handles conveyor belt animation
@@ -148,6 +157,7 @@ Pizza-Factory-Game/
 │── sketch.properties       # Processing IDE configuration
 │── Toppings.pde            # Manages topping movement and interactions
 │── README.md               # Project overview and technical details
+```
 
 🛠 Installation
 
