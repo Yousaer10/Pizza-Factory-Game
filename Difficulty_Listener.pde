@@ -1,0 +1,3 @@
+interface DifficultyListener {
+  void onDifficultyIncreased();
+}
