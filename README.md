@@ -1,62 +1,42 @@
-🍕 Pizza Factory Game
+# 🍕 Pizza Factory Game
 
-📌 Overview
+## 📌 Overview
+**Pizza Factory Game** is a Processing-based simulation where players assemble pizzas on a conveyor belt. It features real-time animations, physics-based toppings, and a dynamic scoreboard.
 
-Pizza Factory Game is a Processing-based simulation where players assemble pizzas on a conveyor belt. It features real-time animations, physics-based toppings, and a dynamic scoreboard.
+### 🚀 Features
+- 🏫 **Animated Conveyor Belt** – Moves pizzas continuously from right to left.
+- 🍕 **Topping Interaction** – Players drag and drop toppings onto the pizza.
+- 🎯 **Scoring System** – Earn points based on correct topping placement.
+- ⚡ **Game Difficulty Scaling** – Speed increases as the game progresses.
+- 🐭 **Avoid Obstacles** – Rats appear and must be dodged.
 
-🚀 Features
+---
 
-🏫 Animated Conveyor Belt – Moves pizzas continuously from right to left.
+## ⚙️ Technical Details
 
-🍕 Topping Interaction – Players drag and drop toppings onto the pizza.
+### 1️⃣ Object-Oriented Design
+The game follows an Object-Oriented Programming (OOP) approach, breaking functionality into multiple classes:
+- **Conveyor_Belt.pde** – Handles conveyor belt animation.
+- **Pizza.pde** – Manages pizza rendering and topping logic.
+- **Scoreboard.pde** – Saves and sorts scores.
+- **Menu.pde** – Handles UI and button interactions.
+- **Rat.pde** – Controls enemy movement and animations.
+- **Pizza_Box.pde** – Handles pizza box mechanics and bonus scoring.
+- **Toppings.pde** – Manages topping movement and interactions.
+- **Difficulty_Listener.pde** – Adjusts game difficulty dynamically.
+- **Game.pde** – Core game loop and logic.
+- **Rotation.pde** – Handles rotation mechanics for draggable objects.
 
-🎯 Scoring System – Earn points based on correct topping placement.
-
-⚡ Game Difficulty Scaling – Speed increases as the game progresses.
-
-🐭 Avoid Obstacles – Rats appear and must be dodged.
-
-⚙️ Technical Details
-
-1️⃣ Object-Oriented Design
-
-The game follows an OOP approach, breaking functionality into multiple classes:
-
-Conveyor_Belt.pde – Handles conveyor belt animation.
-
-Pizza.pde – Manages pizza rendering and topping logic.
-
-Scoreboard.pde – Saves and sorts scores.
-
-Menu.pde – Handles UI and button interactions.
-
-Rat.pde – Controls enemy movement and animations.
-
-Pizza_Box.pde – Handles pizza box mechanics and bonus scoring.
-
-Toppings.pde – Manages topping movement and interactions.
-
-Difficulty_Listener.pde – Adjusts game difficulty dynamically.
-
-Game.pde – Core game loop and logic.
-
-Rotation.pde – Handles rotation mechanics for draggable objects.
-
-2️⃣ Game State Management
-
+### 2️⃣ Game State Management
 The game uses a finite state machine with the following states:
-
-START_SCREEN = 0
-
-GAMEPLAY = 1
-
-SCOREBOARD = 2
-
-GAME_OVER = 3
+- **START_SCREEN = 0**
+- **GAMEPLAY = 1**
+- **SCOREBOARD = 2**
+- **GAME_OVER = 3**
 
 State changes are triggered by user input (mouse clicks on buttons).
 
-```
+```java
 void draw() {
     if (menu.currentState == 0) {
         //drawStartScreen();
@@ -70,15 +50,12 @@ void draw() {
 }
 ```
 
-3️⃣ Collision Detection & Drag Mechanics
+### 3️⃣ Collision Detection & Drag Mechanics
+- **Topping Collision**: Checks if a topping is correctly placed on the pizza.
+- **Pizza Box Collision**: Ensures the box is upright before placing the pizza.
+- **Mouse Drag & Drop**: Handles player interaction.
 
-Topping Collision: Checks if a topping is correctly placed on the pizza.
-
-Pizza Box Collision: Ensures the box is upright before placing the pizza.
-
-Mouse Drag & Drop: Handles player interaction.
-
-```
+```java
 void checkCollisionWithPizzaBase() {
   float boxLeft = x - pizzaBoxImage.width / 2;
   float boxRight = x + pizzaBoxImage.width / 2;
@@ -97,16 +74,14 @@ void checkCollisionWithPizzaBase() {
 
     x = centerX;
     y = centerY;
-
   }
 }
 ```
 
-4️⃣ Sorting Algorithm for Scoreboard
+### 4️⃣ Sorting Algorithm for Scoreboard
+The leaderboard stores scores in a text file and sorts them using **Insertion Sort**.
 
-The leaderboard stores scores in a text file and sorts them using Insertion Sort.
-
-```
+```java
 int[] insertNumberToArray(int[] intArray, int number) {
   int[] newIntArray = new int[intArray.length + 1];
   int i = 0;
@@ -121,11 +96,10 @@ int[] insertNumberToArray(int[] intArray, int number) {
 }
 ```
 
-5️⃣ File Handling for Score Saving
-
+### 5️⃣ File Handling for Score Saving
 The game writes and reads scores from a text file, ensuring scores persist.
 
-```
+```java
 void saveHighScore(int score) {
   this.highScore = score;
 
@@ -140,8 +114,9 @@ void saveHighScore(int score) {
 }
 ```
 
-🗂 Project Structure
+---
 
+## 🗂 Project Structure
 ```
 Pizza-Factory-Game/
 │── Assets/                 # Images, sounds, and textures
@@ -159,19 +134,24 @@ Pizza-Factory-Game/
 │── README.md               # Project overview and technical details
 ```
 
-🛠 Installation
+---
 
-Clone the repository:
+## 🛠 Installation
 
-git clone https://github.com/Yousaer10/Pizza-Factory-Game.git
+1️⃣ **Clone the repository**:
+   ```bash
+   git clone https://github.com/Yousaer10/Pizza-Factory-Game.git
+   ```
 
-Open Processing IDE and run Main.pde.
+2️⃣ Open **Processing IDE** and run **Main.pde**.
 
-🖼 Screenshots
+---
+
+## 🖼 Screenshots
+
 ![Menu Screen](Demo/image-1.png)
 ![Start of game](Demo/image-2.png)
 ![Adding toppings to pizza](Demo/image-3.png)
 ![Putting pizza inside of the box](Demo/image-4.png)
 ![Game over screen](Demo/image-5.png)
 ![Score board](Demo/image-6.png)
-
